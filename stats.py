@@ -15,6 +15,16 @@ def count_caracters(text):
 
     return char_dict
 
-def create_report(char_dict):
-    report=1
+def sort_on(item):
+    return item["num"]
+
+def dict_to_sorted_list(char_dict):
+    """
+    Prend le dict {char: count} et renvoie une liste de dicts:
+    [{"char": "e", "num": 44538}, ...] triée par 'num' (descendant).
+    """
+    report = []
+    for char, count in char_dict.items():
+        report.append({"char": char, "num": count})
+    report.sort(reverse=True, key=sort_on)  # plus grand -> plus petit
     return report
